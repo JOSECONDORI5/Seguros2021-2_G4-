@@ -3,7 +3,9 @@ package segurosxy;
 import java.util.ArrayList;
 
 import segurosxy.modelos.Cliente;
+import segurosxy.modelos.ClienteAgente;
 import segurosxy.modelos.ClienteAsegurado;
+import segurosxy.modelos.ClienteContratante;
 import segurosxy.modelos.Impresora;
 import segurosxy.modelos.Poliza;
 import segurosxy.modelos.SeguroTarjeta;
@@ -79,16 +81,31 @@ public class App {
         // Correo Mediator
         System.out.println("\n[App] Notificaciones con CorreoMediator");
         CorreoMediator correoMediator = new CorreoMediator();
+        
         ClienteAsegurado asegurado = new ClienteAsegurado("Pedro Pablo", 44123121, correoMediator);
         asegurado.enviaCorreo();
 
         ClienteAsegurado asegurado2 = new ClienteAsegurado("Pepito Pepe", 43323211, correoMediator);
         asegurado2.enviaCorreo();
+        
+        // Instanciando cliente tipo agente
+        ClienteAgente agente = new ClienteAgente("Juan Luis", 43323211, correoMediator);
+        agente.enviaCorreo();
+        
+        // Instanciando cliente tipo contratante
+        ClienteContratante contratante = new ClienteContratante("Luis Juan", 43323211, correoMediator);
+        contratante.enviaCorreo();
 
         // Agregando Observadores
         System.out.println("\n[App] Observador para cambio en Suma Asegurada");
         seguro2.addObserver(cliente);
         seguro2.addObserver(asegurado);
+        
+        // Agregando observador para cliente tipo agente
+        seguro2.addObserver(agente);
+        // Agregando observador para cliente tipo contratante
+        seguro2.addObserver(contratante);
+        
         seguro2.setSumaAsegurada(100000.00);
 
         // Interpretando operaciones por SMS

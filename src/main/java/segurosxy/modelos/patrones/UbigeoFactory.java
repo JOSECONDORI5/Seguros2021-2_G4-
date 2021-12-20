@@ -60,6 +60,7 @@ public class UbigeoFactory {
                         list.add(descDep);
                         list.add(descProv);
                         list.add(descUbi);
+                        System.out.println(list);
                         megaCache.get(codDep).get(codProv).put(codUbi, list);
                     }
                     //System.out.println(codDep+","+codProv+","+codUbi);

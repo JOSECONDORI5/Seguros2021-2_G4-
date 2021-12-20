@@ -81,20 +81,21 @@ public class App {
         // Correo Mediator
         System.out.println("\n[App] Notificaciones con CorreoMediator");
         CorreoMediator correoMediator = new CorreoMediator();
+        SmsMediator smsMediator = new SmsMediator();
         
-        ClienteAsegurado asegurado = new ClienteAsegurado("Pedro Pablo", 44123121, correoMediator);
-        asegurado.enviaCorreo();
+        ClienteAsegurado asegurado = new ClienteAsegurado("Pedro Pablo", 44123121, correoMediator, smsMediator);
+        //asegurado.enviaCorreo();
 
-        ClienteAsegurado asegurado2 = new ClienteAsegurado("Pepito Pepe", 43323211, correoMediator);
-        asegurado2.enviaCorreo();
+        ClienteAsegurado asegurado2 = new ClienteAsegurado("Pepito Pepe", 43323211, correoMediator, smsMediator);
+        //asegurado2.enviaCorreo();
         
         // Instanciando cliente tipo agente
-        ClienteAgente agente = new ClienteAgente("Juan Luis", 43323211, correoMediator);
-        agente.enviaCorreo();
+        ClienteAgente agente = new ClienteAgente("Juan Luis", 43323211, correoMediator, smsMediator);
+        //agente.enviaCorreo();
         
         // Instanciando cliente tipo contratante
-        ClienteContratante contratante = new ClienteContratante("Luis Juan", 43323211, correoMediator);
-        contratante.enviaCorreo();
+        ClienteContratante contratante = new ClienteContratante("Luis Juan", 43323211, correoMediator, smsMediator);
+        //contratante.enviaCorreo();
 
         // Agregando Observadores
         System.out.println("\n[App] Observador para cambio en Suma Asegurada");

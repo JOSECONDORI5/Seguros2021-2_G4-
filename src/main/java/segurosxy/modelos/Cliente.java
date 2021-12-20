@@ -5,6 +5,7 @@ import java.util.List;
 
 import segurosxy.modelos.interfaces.IClienteObserver;
 import segurosxy.modelos.patrones.CorreoMediator;
+import segurosxy.modelos.patrones.SmsMediator;
 import segurosxy.modelos.patrones.UbigeoContext;
 
 public class Cliente implements IClienteObserver {
@@ -16,6 +17,7 @@ public class Cliente implements IClienteObserver {
     private List<Seguro> seguros;
 
     protected CorreoMediator correoMediator;
+    protected SmsMediator smsMediator;
 
     public Cliente(String nombre, Integer dni) {
 
@@ -24,11 +26,12 @@ public class Cliente implements IClienteObserver {
         this.seguros = new ArrayList<Seguro>();
     }
 
-    public Cliente(final String nombre, Integer dni, final CorreoMediator correoMediator) {
+    public Cliente(final String nombre, Integer dni, final CorreoMediator correoMediator, SmsMediator smsMediator) {
 
         this.nombre = nombre;
         this.dni = dni;
         this.correoMediator = correoMediator;
+        this.smsMediator = smsMediator;
         this.seguros = new ArrayList<Seguro>();
     }
 

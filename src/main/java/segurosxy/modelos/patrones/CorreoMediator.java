@@ -34,7 +34,7 @@ public class CorreoMediator implements ICorredorMediator {
         System.out.println( preparaMensaje(cliente.getNombre()) );
 
         try {
-            EmailUtil.send(servidorSMTP, "example@gmail.com", "password", "gianmar.sanchez@gmail.com", "hello", preparaMensaje(cliente.getNombre()));
+            EmailUtil.send(servidorSMTP, "correotestsms@gmail.com", "SMSsms123", "correotestsms@gmail.com", "hello", preparaMensaje(cliente.getNombre()));
         }catch (Exception e){
             System.out.println("[CorreoMediator][Error] "+ e.toString());
         }

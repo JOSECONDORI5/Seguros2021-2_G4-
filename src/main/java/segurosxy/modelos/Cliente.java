@@ -101,5 +101,10 @@ public class Cliente implements IClienteObserver {
         }
 
     }
+    public void notificaAutorizacion() {
+
+      
+
+    }
 
 }

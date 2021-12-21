@@ -19,6 +19,7 @@ public abstract class Seguro implements ISeguroObservable {
     protected String modelo;
     protected List<IClienteObserver> contratantes;
     protected Double prima;
+    protected String autorizacion;
 
     public Double getPrima() {
         return prima;
@@ -26,6 +27,9 @@ public abstract class Seguro implements ISeguroObservable {
 
     public void setPrima(Double prima) {
         this.prima = prima;
+    }
+    public void setAutorizacion(String autorizacion) {
+        this.autorizacion = autorizacion;
     }
 
     public Seguro() {
@@ -76,7 +80,6 @@ public abstract class Seguro implements ISeguroObservable {
             a.notifica();
         }
     }
-
     public void addObserver(IClienteObserver observer) {
         this.contratantes.add( observer );
     }

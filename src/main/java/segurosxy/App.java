@@ -108,6 +108,18 @@ public class App {
         seguro2.addObserver(contratante);
         
         seguro2.setSumaAsegurada(100000.00);
+//----------------------------
+        SeguroTarjeta seguro4 = new SeguroTarjeta("BBVA", 48.00);
+        // Instanciando cliente tipo agente
+        ClienteAsegurado clienteAsegurado = new ClienteAsegurado("Juan Luis", 43323211, correoMediator, smsMediator);
+        //agente.enviaCorreo();
+        
+        // Instanciando cliente tipo contratante
+        ClienteContratante servicioTecnico = new ClienteContratante("Luis Juan", 43323211, correoMediator, smsMediator);
+        //contratante.enviaCorreo();
+        System.out.println("\n[App] Observador para cambio en Suma Asegurada");
+        seguro4.addObserver(clienteAsegurado);
+        seguro4.addObserver(servicioTecnico);
 
         // Interpretando operaciones por SMS
         String numero = String.valueOf(seguro2.getNumero());

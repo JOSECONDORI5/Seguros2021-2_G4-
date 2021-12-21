@@ -1,9 +1,11 @@
 package segurosxy.modelos;
 
+
+
 import segurosxy.modelos.patrones.CorreoMediator;
 import segurosxy.modelos.patrones.SmsMediator;
 
-public class ClienteAsegurado extends Cliente {
+public class ClienteAsegurado extends Cliente{
 
     public ClienteAsegurado(String nombre, Integer dni, CorreoMediator correoMediator, SmsMediator smsMediator) {
 
@@ -24,6 +26,14 @@ public class ClienteAsegurado extends Cliente {
     
     public void enviaSMS() {
         smsMediator.enviaSmsTwilio(this);
+    }
+    public void notificaAutorizacion(){
+        try {
+            System.out.println("[CLiente] Notificando al cliente la autorización " + this.getNombre());
+        }
+        catch(Throwable t) {
+            System.out.println("[Cliente] Notificacion con error" + t.getMessage() );
+        }
     }
     
 }
